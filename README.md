@@ -9,6 +9,13 @@ $ # Add axios also!
 $ npm i @wonoly/addScript axios
 ```
 
+or
+
+```html
+<!-- before the addScript tag! -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+
 The package should be loaded in the client side. you can add it by **CDN**
 
 ```html
@@ -34,7 +41,7 @@ const { addScript } = require("@wonoly/addScript")
  * 
  * @method
  * @param {typeof defaultOptions |  Array<typeof defaultOptions>} scripts - Options for a script
- * @param {function} - Callback    * REQUIRED
+ * @param {Function} - Callback    * REQUIRED
 */
 
 // Single script tag loading
@@ -71,3 +78,6 @@ addScript([{
     console.log(res)
 })
 ```
+
+### Screenshot
+

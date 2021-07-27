@@ -10,8 +10,9 @@
  * 
  * @method
  * @param {typeof defaultOptions |  Array<typeof defaultOptions>} scripts - Options for a script
- * @param {function} - Callback    * REQUIRED
+ * @param {Function} - Callback    * REQUIRED
 */
+
 var defaultOptions = {
     src: "",
     strategy: document.head ? "inject" : "eval",
