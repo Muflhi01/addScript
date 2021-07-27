@@ -82,5 +82,5 @@ addScript([{
 ### Screenshot
 
 <p align="center">
-    <img src="https://github.com/wonoly/addScript/blob/main/img/demo.png">
+    <img src="https://raw.githubusercontent.com/wonoly/addScript/main/images/demo.png">
 </p>
