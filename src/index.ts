@@ -1,7 +1,5 @@
 // @ts-nocheck
 
-import axios from "axios";
-
 /**
  * Inject scripts into any website.
  * Script options information:
@@ -22,7 +20,6 @@ var defaultOptions = {
 }
 
 export async function addScript(scripts: typeof defaultOptions | Array<typeof defaultOptions>, callback: any): void {
-
     // make the single script an array
     if ('src' in scripts) scripts = [scripts]
 
@@ -65,24 +62,24 @@ export async function addScript(scripts: typeof defaultOptions | Array<typeof de
 
             if (type === "script") {
                 // Create script element
-                const script = document.createElement("script")
+                const script_tag = document.createElement("script")
 
                 // Set asyncronous status
-                script.async = script.async
-                script.src = source
+                script_tag.async = script.async
+                script_tag.src = source
 
                 // When script loaded
-                script.addEventListener("load", () => jsLoaded())
+                script_tag.addEventListener("load", () => jsLoaded())
 
                 // If script fails to load
-                script.addEventListener("error", () => callback(new Error("Script failed to load.\n" + source), false))
+                script_tag.addEventListener("error", () => callback(new Error("Script failed to load.\n" + source), false))
 
                 // If script load aborted
-                script.addEventListener("abort", () => callback(new Error("Script aborted.\n" + source), false))
+                script_tag.addEventListener("abort", () => callback(new Error("Script aborted.\n" + source), false))
 
                 // Append script to head
                 const el = document.querySelector(injectLocation) || document.head
-                el.appendChild(script)
+                el.appendChild(script_tag)
             } else if (type === "stylesheet") {
                 // Create script element
                 const link = document.createElement("link")
