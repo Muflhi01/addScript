@@ -1,4 +1,4 @@
-# addScript (1.0.1)
+# addScript (1.0.3)
 
 you can add any script or stylesheet to your website!
 
@@ -19,7 +19,7 @@ or
 The package should be loaded in the client side. you can add it by **CDN**
 
 ```html
-<script src=""></script>
+<script src="https://github.com/wonoly/addScript/releases/download/v1.0.3/addScript.min.js"></script>
 ```
 
 or requiring it.
@@ -81,3 +81,6 @@ addScript([{
 
 ### Screenshot
 
+<p align="center">
+    <img src="https://github.com/wonoly/addScript/blob/main/img/demo.png">
+</p>
