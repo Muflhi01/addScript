@@ -1,0 +1,32 @@
+{
+  "name": "@wonoly/addscript",
+  "version": "1.0.0",
+  "description": "Add any script/stylesheet to your website",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "script",
+    "insert",
+    "add",
+    "add",
+    "script",
+    "javascript",
+    "stylesheet",
+    "web",
+    "inject"
+  ],
+  "author": "wonoly",
+  "repository": {
+    "url": "https://github.com/wonoly/addScript.git"
+  },
+  "license": "SEE LICENSE IN ./LICENSE.md",
+  "dependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "axios": "^0.21.1",
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.5"
+  }
+}
