@@ -1,12 +1,12 @@
 {
   "name": "@wonoly/addscript",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add any script/stylesheet to your website",
   "main": "dist/index.js",
   "scripts": {
     "build:js": "microbundle && browserify dist/index.umd.js -o dist/index.browser.js && terser --output dist/index.browser.min.js dist/index.browser.js",
     "build:docs": "typedoc --out ./docs ./src",
-    "build": "yarn build:js && yarn build:docs",
+    "build": "npm run build:js && npm run build:docs",
     "lint": "eslint src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
