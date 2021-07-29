@@ -2,9 +2,12 @@
   "name": "@wonoly/addscript",
   "version": "1.0.1",
   "description": "Add any script/stylesheet to your website",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc src/index.ts",
+    "build:js": "microbundle && browserify dist/index.umd.js -o dist/index.browser.js && terser --output dist/index.browser.min.js dist/index.browser.js",
+    "build:docs": "typedoc --out ./docs ./src",
+    "build": "yarn build:js && yarn build:docs",
+    "lint": "eslint src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,7 +29,11 @@
   "dependencies": {
     "@types/es6-promise": "^3.3.0",
     "axios": "^0.21.1",
+    "browserify": "^17.0.0",
+    "eslint": "^7.31.0",
+    "microbundle": "^0.13.3",
     "tsc": "^2.0.3",
+    "typedoc": "^0.21.4",
     "typescript": "^4.3.5"
   },
   "publishConfig": {
