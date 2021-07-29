@@ -1,6 +1,6 @@
 {
   "name": "@wonoly/addscript",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "Add any script/stylesheet to your website",
   "main": "src/index.ts",
   "scripts": {
