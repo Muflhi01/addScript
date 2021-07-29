@@ -1,33 +1,31 @@
 // @ts-nocheck
+const axios = require("axios")
 
-/**
- * Inject scripts into any website.
- * Script options information:
- *   `strategy`: The strategy to use to run the JavaScript. Can be `inject`, `eval` or `href`. Default is automatically detected.
- *   `injectLocation`: The `document.querySelector` argument for where to inject the resources. Default is `head`.
- *   `async`: Load the script asyncronausly
- *   `src`: Source of the script    * REQUIRED
- * 
- * @method
- * @param {typeof defaultOptions |  Array<typeof defaultOptions>} scripts - Options for a script
- * @param {Function} - Callback    * REQUIRED
-*/
-
-var defaultOptions = {
+const defaultOptions = {
     src: "",
     strategy: document.head ? "inject" : "eval",
     injectLocation: "head",
     async: false,
 }
 
+// eslint-disable-next-line
+/**
+ * Inject scripts into any website.
+ * Script options information:
+ *   `strategy`: The strategy to use to run the JavaScript. Can be `inject`, `eval` or `href`. Default is automatically detected.
+ *   `injectLocation`: The `document.querySelector` argument for where to inject the resources. Default is `head`.
+ *   `async`: Load the script asyncronausly
+ *   `src`: Source of the script
+ * @method
+ * @async
+ * @param {typeof defaultOptions |  Array<typeof defaultOptions>} scripts - Options for a script
+ * @param {Function} - Callback
+ */
 export async function addScript(scripts: typeof defaultOptions | Array<typeof defaultOptions>, callback: any): void {
     // make the single script an array
-    if ('src' in scripts) scripts = [scripts]
+    if ("src" in scripts) scripts = [scripts]
 
-    if (!callback) {
-        throw new Error("addScripts requires a callback")
-        return;
-    }
+    if (!callback) throw new Error("addScripts requires a callback")
 
     const jsLoaded = () => {
         callback(null, true)
@@ -35,34 +33,33 @@ export async function addScript(scripts: typeof defaultOptions | Array<typeof de
 
     // go through every script
     scripts.forEach((script) => {
-        
         // checking values
         if (!script.strategy)
-            // asigning default values if it does not exist
-            // we can access variables outside from the function :( 
-            script.strategy = document.head ? "inject" : "eval"
+        // asigning default values if it does not exist
+        // we can access variables outside from the function :(
+        {script.strategy = document.head ? "inject" : "eval"}
 
         if (!script.injectLocation)
-            script.injectLocation = "head"
+        {script.injectLocation = "head"}
 
         if (!script.async)
-            script.async = false
+        {script.async = false}
 
         // Make strategy lowercase
-        var strategy = script.strategy.toLowerCase()
+        const strategy = script.strategy.toLowerCase()
 
         if (strategy === "inject") {
-
             if (!(document.querySelector(script.injectLocation) || document.head)) callback(new ReferenceError("Unable to find element in document."), false)
 
             // Get the type of source
-            let source = script.src;
-            let injectLocation = script.injectLocation;
+            const source = script.src
+            const injectLocation = script.injectLocation
 
             const type = source.endsWith("css") ? "stylesheet" : "script"
 
             if (type === "script") {
                 // Create script element
+                // eslint-disable-next-line
                 const script_tag = document.createElement("script")
 
                 // Set asyncronous status
@@ -103,13 +100,14 @@ export async function addScript(scripts: typeof defaultOptions | Array<typeof de
                 // Append link to head
                 const el = document.querySelector(injectLocation) || document.head
                 el.appendChild(link)
-            } 
+            }
             else callback(new TypeError("Invalid resource type specified."), false)
         } else if (strategy === "eval") {
             // Fetch the content of the URL
             axios.get(script.src).then((res: any) => {
                 try {
                     // Run the code
+                    /* eslint-disable no-eval */
                     eval(res)
                     jsLoaded()
                 } catch (_e) {

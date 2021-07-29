@@ -1,6 +1,6 @@
 {
   "name": "@wonoly/addscript",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "Add any script/stylesheet to your website",
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +28,8 @@
   "license": "SEE LICENSE IN ./LICENSE.md",
   "dependencies": {
     "@types/es6-promise": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
     "axios": "^0.21.1",
     "browserify": "^17.0.0",
     "eslint": "^7.31.0",
@@ -38,5 +40,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.14.0"
   }
 }

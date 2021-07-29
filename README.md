@@ -1,4 +1,4 @@
-# addScript (1.0.4)
+# addScript (1.0.0)
 
 you can add any script or stylesheet to your website!
 
