@@ -19,7 +19,7 @@ or
 The package should be loaded in the client side. you can add it by **CDN**
 
 ```html
-<script src="https://unpkg.com/@wonoly/addscript@latest"></script>
+<script src="https://unpkg.com/@wonoly/addscript@latest/dist/index.js"></script>
 ```
 
 or requiring it.
